@@ -11,7 +11,8 @@ class Stack:
         return len(self.items) == 0
 
     def push(self, item):
-        self.items.append(item)
+        if len(self.items) < self.limit:
+            self.items.append(item)
         return self
 
     def pop(self):
@@ -30,7 +31,8 @@ class Stack:
 
     def search(self, target):
         if target in self.items:
-            return self.items.index(target)
+            return (len(self.items) - self.items.index(target)) - 1
         return -1
-    
+
+
 
